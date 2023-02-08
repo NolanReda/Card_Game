@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Working With Collections</title>
+  <style>
+    .row {
+      margin-top: 50px;
+      width: 100%;
+      text-align: center;
+      font-size: larger;
+    }
+
+    #play {
+      height: 50px;
+      width: 100px;
+      font-size: x-large;
+      border: none;
+      border-radius: 6px;
+      background-color: green;
+      color: whitesmoke;
+    }
+
+    #reset {
+      height: 50px;
+      width: 100px;
+      font-size: x-large;
+      border: none;
+      border-radius: 6px;
+      background-color: orange;
+      color: whitesmoke;
+    }
+
+    .column {
+      font-size: larger;
+      text-align: center;
+    }
+
+    .text-row {
+      width: 100%;
+    }
+
+    #play:active,
+    #reset:active {
+      background-color: grey;
+    }
+
+
+
+  </style>
+</head>
+
+<body>
+  <div class="row">
+    <button id="play" type="button">Play!</button>
+    <button id="reset" type="button">Reset</button>
+  </div>
+  <div id="row" class="row"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.15/lodash.js"></script>
+  <script src="main.js"></script>
+</body>
+
+</html>
