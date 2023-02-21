@@ -11,7 +11,7 @@ var suits = ['Club', 'Spade', 'Diamond', 'Heart'];
 var ranks = ['ace', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'jack', 'queen', 'king'];
 var deck = [];
 
-var suitsCounter = 0;
+let suitsCounter = 0;
 function makeDeck() {
   for (let i = 0; i <= ranks.length; i++) {
     var card = {};
@@ -47,7 +47,13 @@ function deal() {
 var $row = document.querySelector('#row');
 
 function play(event) {
+  var $table = document.querySelector('#table');
+  if ($table) {
+    return;
+  }
   deal();
+  var table = document.createElement('div');
+  table.setAttribute('id', 'table');
 
   for (let i = 0; i < players.length; i++) {
     var div = document.createElement('div');
@@ -57,7 +63,7 @@ function play(event) {
     var hand1 = document.createTextNode(players[i].player + ' was dealt: ' + Object.keys(players[i].hand[0]) + ' ' + Object.values(players[i].hand[0]) + ' and ' + Object.keys(players[i].hand[1]) + ' ' + Object.values(players[i].hand[1]));
     playerHand.appendChild(hand1);
     div.appendChild(playerHand);
-    $row.appendChild(div);
+    table.appendChild(div);
     var card1 = Object.values(players[i].hand[0])[0];
     var card2 = Object.values(players[i].hand[1])[0];
     if (card1 === 'jack' || card1 === 'queen' || card1 === 'king') {
@@ -90,7 +96,21 @@ function play(event) {
   var winName = document.createTextNode('The winner is: ' + winner);
   winningPlayer.appendChild(winName);
   div.appendChild(winningPlayer);
+  $row.appendChild(table);
+
 }
 
-var $button = document.querySelector('#play');
-$button.addEventListener('click', play);
+function reset(event) {
+  var $table = document.querySelector('#table');
+  if (!$table) {
+    return;
+  }
+  console.log(players);
+  $table.remove();
+}
+
+var $play = document.querySelector('#play');
+$play.addEventListener('click', play);
+
+var $reset = document.querySelector('#reset');
+$reset.addEventListener('click', reset);
