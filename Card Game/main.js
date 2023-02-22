@@ -1,10 +1,10 @@
 console.log('Lodash is loaded:', typeof _ !== 'undefined');
 
 var players = [
-  { player: 'Nolan', hand: [], handTotal: 0 },
-  { player: 'Vanessa', hand: [], handTotal: 0 },
-  { player: 'Brian', hand: [], handTotal: 0 },
-  { player: 'Q', hand: [], handTotal: 0 }
+  { player: 'Foo', hand: [], handTotal: 0 },
+  { player: 'Bar', hand: [], handTotal: 0 },
+  { player: 'Baz', hand: [], handTotal: 0 },
+  { player: 'Qux', hand: [], handTotal: 0 }
 ];
 
 var suits = ['Club', 'Spade', 'Diamond', 'Heart'];
@@ -105,7 +105,10 @@ function reset(event) {
   if (!$table) {
     return;
   }
-  console.log(players);
+  for (let i = 0; i < players.length; i++) {
+    players[i].hand = [];
+    players[i].handTotal = 0;
+  }
   $table.remove();
 }
 
